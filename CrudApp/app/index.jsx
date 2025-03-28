@@ -1,4 +1,4 @@
-import { Text, View, TextInput, Pressable, StyleSheet, FlatList } from "react-native";
+import { Text, View, TextInput, Pressable, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
@@ -10,7 +10,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StatusBar } from "expo-status-bar";
 import { useRouter } from "expo-router";
 import { Octicons } from '@expo/vector-icons'
-
 import { data } from "@/data/todos"
 
 export default function Index() {
@@ -125,6 +124,7 @@ export default function Index() {
         renderItem={renderItem}
         keyExtractor={todo => todo.id}
         contentContainerStyle={{ flexGrow: 1 }}
+        showsVerticalScrollIndicator={false}
         itemLayoutAnimation={LinearTransition}
         keyboardDismissMode="on-drag"
       />
@@ -184,10 +184,13 @@ function createStyles(theme, colorScheme) {
       pointerEvents: 'auto',
     },
     todoText: {
-      flex: 1,
+      display: 'flex',
       fontSize: 18,
       fontFamily: 'Inter_500Medium',
       color: theme.text,
+      alignItems: 'center',
+      backgroundColor: 'orange',
+      justifyContent: 'center'
     },
     completedText: {
       textDecorationLine: 'line-through',
