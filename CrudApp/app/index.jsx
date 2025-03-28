@@ -189,7 +189,6 @@ function createStyles(theme, colorScheme) {
       fontFamily: 'Inter_500Medium',
       color: theme.text,
       alignItems: 'center',
-      backgroundColor: 'orange',
       justifyContent: 'center'
     },
     completedText: {
